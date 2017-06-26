@@ -1,2 +1,2 @@
-# py-dot-props
-A python implementation of the dot-props package
+# py-dot-prop
+A python implementation of the dot-prop package

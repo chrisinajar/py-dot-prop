@@ -10,6 +10,8 @@ clean:
 	- rm .py2-env
 	- rm -rf $(DIST)
 	- rm -rf $(TESTENV)
+	- rm -rf ./*.egg-info
+	- rm -rf ./build/
 
 .PHONY: two
 two: .py2-env
@@ -23,9 +25,9 @@ test-three: three
 	pipenv run unit2 discover
 
 .PHONY: publish
-publish: test build test-package
-	twine upload $(DIST)/*py3*
-	twine upload $(DIST)/*py2*
+publish: test test-package build
+	- twine upload $(DIST)/*py3*
+	- twine upload $(DIST)/*py2*
 
 .PHONY: build build-two build-three
 build: build-two build-three
