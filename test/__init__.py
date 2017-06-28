@@ -14,6 +14,8 @@ class DotPropsTest(unittest2.TestCase):
   def test_get(self):
     self.assertEqual(dot_prop.get(testObject, 'foo'), 'bar')
     self.assertEqual(dot_prop.get(testObject, 'nested.value'), 'indeed')
+  def test_array(self):
+    self.assertEqual(dot_prop.get(['asd'], '0'), 'asd')
 
 if __name__ == '__main__':
   unittest2.main()
